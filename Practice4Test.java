@@ -26,6 +26,7 @@ public class Practice4Test {
 	
 	public boolean isPalindrome(String item) {
 		clearData();
+		item = item.toLowerCase().replaceAll("[^a-zA-Z0-9]","").replaceAll("//s+", "");
 		for (int i = 0; i < item.length(); i++) {
 			stack.push(item.substring(i, i+1));
 			queue.enqueue(item.substring(i, i+1));
@@ -38,9 +39,9 @@ public class Practice4Test {
 		}
 		
 		// At this point, the stack AND the queue should be empty. But check in case...
-		if (!stack.empty() || ! queue.empty())
+		if (!stack.empty() || ! queue.empty()) {
 			return false;
-		
+		}
 		return true;
 	}
 	
